@@ -13,7 +13,7 @@ module LanguagePack
     DEFAULT_CLR_VERSION = "4.0.30319".freeze
 
     def self.use?
-      Dir.glob("**/*.jar").any? || Dir.glob("**/*.class").any?
+      Dir.glob("**/Web.config").any? || Dir.glob("**/*.class").any?
     end
 
     attr_reader :build_path, :cache_path
@@ -27,7 +27,7 @@ module LanguagePack
     end
 
     def name
-      "Clr"
+      "CLR"
     end
 
     def compile
@@ -108,6 +108,8 @@ module LanguagePack
       add_debug_opts_to_profiled
     end
 
+    # sets up environment
+    # Anything with .sh is added to startup script and sourced when app is started (current behavior)
     def add_to_profiled(string)
       FileUtils.mkdir_p "#{build_path}/.profile.d"
       File.open("#{build_path}/.profile.d/java.sh", "a") do |file|
