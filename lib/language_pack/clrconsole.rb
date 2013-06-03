@@ -12,6 +12,12 @@ module LanguagePack
       "ClrConsole"
     end
 
+    def default_process_types
+      {
+        "web" => "Console" # TODO what is this for really?
+      }
+    end
+
   end
 end
 

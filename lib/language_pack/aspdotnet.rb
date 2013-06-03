@@ -13,6 +13,12 @@ module LanguagePack
       "ASP.NET"
     end
 
+    def default_process_types
+      {
+        "web" => "IIS"
+      }
+    end
+
   end
 end
 
