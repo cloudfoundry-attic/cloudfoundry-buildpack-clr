@@ -1,0 +1,21 @@
+#!/usr/bin/env ruby
+# vim: set ft=ruby
+# sync output
+$stdout.sync = true
+
+build_dir = ARGV[0]
+
+# ASP.NET
+if File.exists?(File.join(build_dir, 'Web.config'))
+  puts("ASP.NET")
+  exit 0
+end
+
+# TODO: should standalone have a config?
+if Dir.glob(File.join(build_dir, '*.exe.config')).any?
+  puts("ClrStandalone")
+  exit 0
+end
+
+puts("no")
+exit 1

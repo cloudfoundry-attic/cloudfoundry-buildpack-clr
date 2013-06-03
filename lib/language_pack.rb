@@ -1,6 +1,6 @@
 require "pathname"
 require "language_pack/aspdotnet"
-require "language_pack/standalone"
+require "language_pack/clrconsole"
 
 # General Language Pack module
 module LanguagePack
@@ -11,7 +11,7 @@ module LanguagePack
   def self.detect(*args)
     Dir.chdir(args.first)
 
-    pack = [ AspDotNet, Standalone ].detect do |klass|
+    pack = [ AspDotNet, ClrConsole ].detect do |klass|
       klass.use?
     end
 

@@ -1,16 +1,15 @@
 require "language_pack/clr"
 require "fileutils"
 
-# TODO logging
 module LanguagePack
-  class AspDotNet < Clr
+  class ClrConsole < Clr
 
     def self.use?
-      File.exists?("Web.config") || File.exists?("web.config")
+      Dir.glob("*.exe.config").any?
     end
 
     def name
-      "ASP.NET"
+      "ClrConsole"
     end
 
   end
