@@ -13,7 +13,7 @@ end
 
 # TODO: should standalone have a config?
 if Dir.glob(File.join(build_dir, '*.exe.config')).any?
-  puts("ClrStandalone")
+  puts("ClrConsole")
   exit 0
 end
 
