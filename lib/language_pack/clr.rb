@@ -54,18 +54,15 @@ module LanguagePack
     # Anything with .sh is added to startup script and sourced when app is started (current behavior)
     def add_to_profiled(string)
       FileUtils.mkdir_p "#{build_path}/.profile.d"
-      File.open("#{build_path}/.profile.d/java.sh", "a") do |file|
+      File.open("#{build_path}/.profile.d/clr.ps1", "a") do |file|
         file.puts string
       end
     end
 
     def set_env_default(key, val)
-      add_to_profiled %{export #{key}="${#{key}:-#{val}}"}
+      add_to_profiled %{$env:#{key}="#{val}"}
     end
 
-    def set_env_override(key, val)
-      add_to_profiled %{export #{key}="#{val.gsub('"','\"')}"}
-    end
   end
 end
 
