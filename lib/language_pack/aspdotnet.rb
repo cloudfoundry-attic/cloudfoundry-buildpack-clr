@@ -13,9 +13,14 @@ module LanguagePack
       "ASP.NET"
     end
 
+    def compile
+      resources_dir = File.expand_path('../../../resources/iishost', __FILE__)
+      FileUtils.cp_r(resources_dir, build_path)
+    end
+
     def default_process_types
       {
-        "web" => "IIS"
+        "web" => "iishost.exe"
       }
     end
 

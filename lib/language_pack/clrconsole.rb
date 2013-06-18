@@ -14,7 +14,7 @@ module LanguagePack
 
     def default_process_types
       {
-        "web" => "Console" # TODO what is this for really?
+        "web" => "app.exe"
       }
     end
 
