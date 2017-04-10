@@ -27,7 +27,7 @@ module LanguagePack
 
     def default_process_types
       {
-        "web" => ".\\.iishost\\iishost.exe"
+        "web" => "./.iishost/iishost.exe"
       }
     end
 
